@@ -1,7 +1,6 @@
-#Overview
+# Overview
 This repository contains the computational framework and analysis code for the paper "Two dimensions of walkability diverge across urban forms".
-
-#Repository Structure
+# Repository Structure
 The codebase is organized into 7 modules, each handling a specific aspect of the pipeline:
 .
 ├── mobility_data_processing.py    # [Data] Mobile phone trajectory cleaning & stay detection
@@ -13,7 +12,7 @@ The codebase is organized into 7 modules, each handling a specific aspect of the
 ├── behavioral_modeling_policy.py  # [Sim]  Agent-based routing & Policy scenario simulation
 └── README.md
 
-#Core Modules
+# Core Modules
 mobility_data_processing.py: Preprocess anonymized mobile phone data to identify user stay points and infer primary residence locations.
 truck_data_processing.py: Clean high-frequency GPS trajectories and identifies logistics stops using adaptive approach.
 urban_morphology.py: Classify cities into four urban forms (Radial Monocentric, Concentric Monocentric, Clustered Polycentric, Dispersed Polycentric).
@@ -22,7 +21,7 @@ route_reconstruction.py: Reconstruct precise street-level trajectories for pedes
 walkability_indices.py: Compute static and dynamic walkability metrics across three spatial scales——street segments (SWI/DWI), 15-minute neighborhood catchments (Home_Indices), and time-weighted individual trip trajectories (Pedestrian Experience PE).
 behavioral_modeling_policy.py: Implement the agent-based simulation model for policy scenarios within the 15-minute city framework.
 
-#Quick Start
+# Quick Start
 
 Usage Examples
 
@@ -47,7 +46,7 @@ simulator = PolicyScenarioSimulator(street_network, observed_trips, params)
 results = simulator.scenario_traffic_calming(alpha_values=[0.0, 0.3])
 print(results)
 
-#Configuration
+# Configuration
 API Keys: The route_reconstruction.py and transport_mode_inference.py modules require an AutoNavi (Amap) API Key to fetch routing data.
 reconstructor = RouteReconstructor(api_key="YOUR_AMAP_KEY")
 
