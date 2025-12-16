@@ -1,3 +1,111 @@
+# Two dimensions of walkability diverge across urban forms
+
+## 📖 Overview
+
+> This repository contains the computational framework and analysis code for the paper **"Two dimensions of walkability diverge across urban forms"**.
+
+It challenges traditional static walkability metrics by introducing a dynamic framework that integrates built environment quality with time-varying traffic exposure.
+
+---
+
+## 📂 Repository Structure
+
+The codebase is organized into **7 modules**, each handling a specific aspect of the analysis pipeline:
+
+```text
+.
+├── mobility_data_processing.py    # [Data] Mobile phone trajectory cleaning & stay detection
+├── truck_data_processing.py       # [Data] Truck GPS processing with adaptive stop detection
+├── transport_mode_inference.py    # [Algo] Mode inference using XGBoost & Travel Time Ratios
+├── urban_morphology.py            # [Env]  Urban form classification
+├── route_reconstruction.py        # [Algo] Route reconstruction via API & High-precision Map Matching
+├── walkability_indices.py         # [Metric] Static (SWI) & Dynamic (DWI) index calculation
+├── behavioral_modeling_policy.py  # [Sim]  Agent-based routing & Policy scenario simulation
+└── README.md
+
+## 📦 Core Modules
+
+* **`mobility_data_processing.py`**
+  Preprocesses anonymized mobile phone data to identify user stay points and infer primary residence locations.
+
+* **`truck_data_processing.py`**
+  Cleans high-frequency GPS trajectories and identifies logistics stops using an adaptive approach.
+
+* **`urban_morphology.py`**
+  Classifies cities into four urban forms: *Radial Monocentric, Concentric Monocentric, Clustered Polycentric,* and *Dispersed Polycentric*.
+
+* **`transport_mode_inference.py`**
+  Infers travel modes (Walking/Private/Public) using multi-dimensional features (trip distance, duration, travel time ratios vs. routing API benchmarks).
+
+* **`route_reconstruction.py`**
+  Reconstructs precise street-level trajectories for pedestrians and vehicles using mapping APIs and map-matching algorithms.
+
+* **`walkability_indices.py`**
+  Computes static and dynamic walkability metrics across three spatial scales:
+  1. **Street segments** (SWI/DWI)
+  2. **15-minute neighborhood catchments** (Home_Indices)
+  3. **Time-weighted individual trip trajectories** (Pedestrian Experience PE)
+
+* **`behavioral_modeling_policy.py`**
+  Implements the agent-based simulation model for policy scenarios (e.g., amenity localization, traffic calming) within the 15-minute city framework.
+
+---
+
+## 🚀 Quick Start
+
+### Usage Examples
+
+#### 1. Calculate Walkability Indices
+Compute the **Static Walkability Index (SWI)** for a single street segment.
+
+```python
+from walkability_indices import StaticWalkabilityIndex
+
+# Initialize calculator
+swi_calc = StaticWalkabilityIndex()
+
+# Define segment attributes
+segment_data = {
+    'highway': 'residential',
+    'gradient': 1.5,
+    'bldg_density': 0.4,
+    'has_amenity': True,
+    'green_ratio': 0.6
+}
+
+score = swi_calc.compute_swi(segment_data)
+print(f"Segment SWI: {score:.2f}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Overview
 This repository contains the computational framework and analysis code for the paper "Two dimensions of walkability diverge across urban forms".
 # Repository Structure
