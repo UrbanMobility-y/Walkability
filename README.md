@@ -1,6 +1,8 @@
 # Overview
 This repository contains the computational framework and analysis code for the paper "Two dimensions of walkability diverge across urban forms".
 # Repository Structure
+
+```text
 The codebase is organized into 7 modules, each handling a specific aspect of the pipeline:
 .
 ├── mobility_data_processing.py    # [Data] Mobile phone trajectory cleaning & stay detection
