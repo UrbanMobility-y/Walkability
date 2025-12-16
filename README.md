@@ -95,7 +95,7 @@ params = {'sigma': 0.55, 'beta': 1.8}
 simulator = PolicyScenarioSimulator(street_network, observed_trips, params)
 
 # Run scenario
-results = simulator.scenario_traffic_calming(alpha_values=[0.0, 0.3])
+results = simulator.scenario_traffic_calming(alpha_values=np.arange(0, 1.1, 0.1))
 print(results)
 ```
 
