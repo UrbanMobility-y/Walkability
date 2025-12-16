@@ -81,7 +81,7 @@ home_info = identify_home_location(trajectory_df, min_days_present=1)
 print(f"Home Coordinates: ({home_info['longitude']:.4f}, {home_info['latitude']:.4f})")
 ```
 
-### 2. Classify Urban Form (Morphology)
+### 2. Classify Urban Form
 
 Identify population centers and classify the city structure (e.g., Polycentric vs. Monocentric).
 
