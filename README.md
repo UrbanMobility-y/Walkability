@@ -3,7 +3,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> Computational framework and analysis code for quantifying the dual dimensions of urban walkability—static infrastructure quality and dynamic traffic exposure—across 82 Chinese cities.
+> Computational framework and analysis code for quantifying the dual dimensions of urban walkability: static built environment quality and dynamic traffic exposure.
 
 ---
 
