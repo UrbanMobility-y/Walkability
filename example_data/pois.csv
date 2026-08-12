@@ -1,0 +1,6 @@
+poi_id,longitude,latitude,category
+home_a,116.4,39.9,residential
+shop_a,116.401,39.9,shopping
+park_a,116.402,39.9005,park
+home_b,116.41,39.905,residential
+office_b,116.412,39.9055,enterprise

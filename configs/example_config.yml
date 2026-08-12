@@ -1,0 +1,52 @@
+# Example configuration for the reproducible demo workflow.
+# The real 82-city input data are restricted and cannot be redistributed.
+
+stay_detection:
+  eps_m: 50
+  min_pts: 2        # small value for bundled synthetic demo only; paper used min_pts=10
+  min_duration_min: 5
+  poi_buffer_m: 100
+
+mode_refinement:
+  active_probability_threshold: 0.70
+  walking_speed_threshold_kmh: 6
+
+route_validation:
+  baseline_buffer_m: 100
+  required_ping_match_ratio: 0.80
+  sensitivity_buffers_m: [100, 80, 60, 40, 20]
+
+walkability:
+  pcu_weights:
+    car: 1.0
+    bus: 2.0
+    truck: 2.5
+  dwi_normalization_scope: within_city
+
+behavioral_model:
+  # Manuscript grid: sigma 0--1 by 0.05; beta 0--5 by 0.1 (1,071 pairs).
+  sigma_start: 0.0
+  sigma_stop: 1.0
+  sigma_step: 0.05
+  beta_start: 0.0
+  beta_stop: 5.0
+  beta_step: 0.1
+  mse_tolerance: 1.05
+  calibration_sample_size_per_city: 500000
+  calibration_error_weight_swi: 0.5
+  # Small grids used only so the bundled demonstration finishes immediately.
+  demo_sigma_values: [0.0, 0.5, 1.0]
+  demo_beta_values: [0.0, 1.0, 2.0]
+
+neighborhoods:
+  walk_minutes: 15
+  walk_speed_mps: 1.0
+  # Production radii are city-specific: 900 m / mean observed circuity.
+  demo_catchment_radius_m: 225
+
+policy_scenarios:
+  intensity_start: 0.0
+  intensity_stop: 1.0
+  intensity_step: 0.1
+  residentially_anchored: true
+  hold_raw_vehicle_field_fixed: true

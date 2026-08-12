@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "experienced-walkability"
+version = "0.3.0"
+description = "Public method implementation for static and dynamic experienced walkability"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Yitao Yang and coauthors"}]
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "scipy>=1.9",
+  "scikit-learn>=1.2",
+  "xgboost>=1.7",
+  "networkx>=2.8",
+  "shapely>=2.0",
+  "geopandas>=0.13",
+  "pyyaml>=6.0",
+  "requests>=2.28"
+]
+
+[tool.setuptools]
+py-modules = [
+  "mobility_data_processing",
+  "transport_mode_inference",
+  "route_reconstruction",
+  "truck_data_processing",
+  "walkability_indices",
+  "neighborhood_walkability",
+  "classify_urban_forms",
+  "behavioral_modeling_policy",
+  "spatial_utils"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

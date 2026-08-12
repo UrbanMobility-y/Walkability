@@ -1,0 +1,129 @@
+{
+  "grid_degrees": 0.005,
+  "smoothing_sigma_km": 1.0,
+  "smoothing_truncate_sigma": 3.5,
+  "smoothing_boundary": "zero",
+  "peak_radius_km": 1.0,
+  "relative_center_threshold": 0.45,
+  "min_center_separation_km": 2.0,
+  "ring_width_km": 1.0,
+  "sector_width_degrees": 15.0,
+  "ann_threshold": 1.0,
+  "spatial_concentration_threshold": 0.5,
+  "min_ring_population_share": 0.002,
+  "radial_population_quantile": 0.95,
+  "min_radial_rings": 4,
+  "concentration_buffer_km": 6.0,
+  "concentration_max_centers": 2,
+  "polycentric_distance_scale_km": 25.0,
+  "polycentric_prominence_power": 1.0,
+  "radial_fit_weight": 0.25,
+  "dispersed_center_count_weight": 1.0,
+  "dispersed_ann_weight": 1.0,
+  "dispersed_low_sc_weight": 1.0,
+  "classification_tree": {
+    "model_type": "fixed_parameter_decision_tree",
+    "maximum_depth": 7,
+    "tree": {
+      "feature": "polycentricity_score",
+      "threshold": 0.020349739840138853,
+      "left": {
+        "feature": "r2_exponential",
+        "threshold": 0.9469101809807917,
+        "left": {
+          "feature": "angular_cv",
+          "threshold": 0.5673208887014349,
+          "left": {
+            "feature": "r2_exponential",
+            "threshold": 0.8019087492213828,
+            "left": {"label": "Concentric Monocentric"},
+            "right": {
+              "feature": "r2_exponential",
+              "threshold": 0.8322581393954067,
+              "left": {"label": "Clustered Polycentric"},
+              "right": {
+                "feature": "polycentricity_score",
+                "threshold": 0.004418587655498414,
+                "left": {"label": "Concentric Monocentric"},
+                "right": {"label": "Clustered Polycentric"}
+              }
+            }
+          },
+          "right": {"label": "Clustered Polycentric"}
+        },
+        "right": {
+          "feature": "r2_power_law",
+          "threshold": -0.8338124119865157,
+          "left": {
+            "feature": "max_secondary_peak_ratio",
+            "threshold": 0.31495803803997185,
+            "left": {"label": "Concentric Monocentric"},
+            "right": {"label": "Radial Monocentric"}
+          },
+          "right": {"label": "Clustered Polycentric"}
+        }
+      },
+      "right": {
+        "feature": "max_peak_prominence_ratio",
+        "threshold": 0.365620063265239,
+        "left": {
+          "feature": "study_area_km2",
+          "threshold": 359.96361772201556,
+          "left": {
+            "feature": "max_secondary_peak_ratio",
+            "threshold": 0.650427505996861,
+            "left": {"label": "Clustered Polycentric"},
+            "right": {
+              "feature": "polycentricity_score",
+              "threshold": 0.05495573670628766,
+              "left": {"label": "Concentric Monocentric"},
+              "right": {"label": "Dispersed Polycentric"}
+            }
+          },
+          "right": {
+            "feature": "r2_exponential",
+            "threshold": 0.9805592605289035,
+            "left": {
+              "feature": "angular_cv",
+              "threshold": 0.5848487662395072,
+              "left": {
+                "feature": "r2_power_law",
+                "threshold": -8.715685206439346,
+                "left": {
+                  "feature": "polycentricity_score",
+                  "threshold": 0.09036003455815397,
+                  "left": {"label": "Radial Monocentric"},
+                  "right": {"label": "Dispersed Polycentric"}
+                },
+                "right": {"label": "Radial Monocentric"}
+              },
+              "right": {
+                "feature": "max_secondary_peak_ratio",
+                "threshold": 0.6489278245430585,
+                "left": {"label": "Dispersed Polycentric"},
+                "right": {"label": "Radial Monocentric"}
+              }
+            },
+            "right": {
+              "feature": "polycentricity_score",
+              "threshold": 0.04640096364623182,
+              "left": {"label": "Clustered Polycentric"},
+              "right": {"label": "Radial Monocentric"}
+            }
+          }
+        },
+        "right": {
+          "feature": "angular_cv",
+          "threshold": 0.5551906587607154,
+          "left": {"label": "Clustered Polycentric"},
+          "right": {
+            "feature": "study_area_km2",
+            "threshold": 435.69063054314154,
+            "left": {"label": "Clustered Polycentric"},
+            "right": {"label": "Dispersed Polycentric"}
+          }
+        }
+      }
+    }
+  }
+}
